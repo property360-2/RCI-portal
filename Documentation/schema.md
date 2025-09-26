@@ -18,12 +18,13 @@
 
 ### **2. Programs Table**
 
-| Field           | Type          | Description                     |
-| --------------- | ------------- | ------------------------------- |
-| program_id (PK) | UUID / Serial | Unique program ID               |
-| program_code    | VARCHAR       | Short code (e.g., BSIS)         |
-| program_name    | VARCHAR       | Full name of program            |
-| department      | VARCHAR       | Department offering the program |
+| Field           | Type          | Description                         |
+| --------------- | ------------- | ----------------------------------- |
+| program_id (PK) | UUID / Serial | Unique program ID                   |
+| program_code    | VARCHAR       | Short code (e.g., BSIS)             |
+| program_name    | VARCHAR       | Full name of program                |
+| department      | VARCHAR       | Department offering the program     |
+| sector          | VARCHAR       | category of what sector is it under |
 
 ---
 

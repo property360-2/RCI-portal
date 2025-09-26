@@ -73,18 +73,17 @@ RCI Academic Portal is a centralized Student Information & Academic Management S
 
 ## 5) Data Model (entities overview)
 
-* **Users** (id, name, role, email, passwordHash, profile)
-* **Programs / Sectors** (e.g., BSIS)
-* **Curriculum** (program_id, year_level, semester, subject entries)
-* **Subjects** (code, title, units, prerequisites, syllabus_pdf, summary) ✅ tooltip/info for UI hover
-* **Sections** (subject_id, term, schedule, room, professor_id)
-* **Students** (user_id, student_number, status, program_id, year_level)
-* **Enrollments** (student_id, section_id, term, status, timestamp)
-* **Grades** (student_id, subject_id, section_id, grade, status, encoded_by, signed_by)
-* **Applications** (applicant info, uploaded_requirements, status)
-* **Documents** (student_id, doc_type, pdf_path, uploaded_by, timestamp)
-* **AuditLog** (entity, action, user_id, details, timestamp)
-
+* **Users** (user_id, username, role, email, password_hash, date_joined, is_active)
+* **Programs / Sectors** (program_id, program_code, program_name, department, sector)
+* **Curriculum** (curriculum_id, program_id, year_level, semester, subject entries)
+* **Subjects** (subject_id, code, title, units, prerequisites, syllabus_pdf, summary) ✅ tooltip/info for UI hover
+* **Sections** (section_id, subject_id, term, schedule, room, professor_id)
+* **Students** (student_id, user_id, student_number, status, program_id, year_level)
+* **Enrollments** (enrollment_id, student_id, section_id, term, status, timestamp)
+* **Grades** (grade_id, student_id, subject_id, section_id, grade, status, encoded_by, signatories)
+* **Applications** (application_id, applicant_name, email, program_id, uploaded_requirements, status)
+* **Documents** (document_id, student_id, doc_type, file_path, uploaded_by, timestamp)
+* **AuditLog** (log_id, entity, action, user_id, details, timestamp)
 
 ---
 
