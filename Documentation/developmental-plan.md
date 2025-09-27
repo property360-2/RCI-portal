@@ -6,15 +6,18 @@
 
 **Goal:** Lay the foundation with requirements, ERD, and DB schema.
 
-**Tasks:**
+### Project Management – **Jun**
 
-- [ ] Finalize system requirements & user roles (Student, Registrar, Admission, Head, Professor, Admin).
-- [ ] Create ERD with full relationships (Users, Programs, Curriculum, Subjects, Sections, Students, Enrollments, Grades, Applications, Documents, AuditLog).
-- [ ] Initialize PostgreSQL database.
-- [ ] Implement schema in Django models (`models.py`).
-- [ ] Run migrations (`makemigrations`, `migrate`).
-- [ ] Seed sample data (programs, test users, dummy enrollments).
-- [ ] Setup version control (GitHub repo).
+* [X] Finalize system requirements & user roles.
+* [X] Setup GitHub repository & workflow.
+* [X] Create ERD with full relationships. nasa schema.md
+
+### Backend – **Kirt**
+
+* [ ] Initialize PostgreSQL database.
+* [ ] Implement schema in Django models (`models.py`).
+* [ ] Run migrations (`makemigrations`, `migrate`).
+* [ ] Seed sample data (programs, test users, dummy enrollments).
 
 **Status:** 🚧 Not Started
 
@@ -24,15 +27,17 @@
 
 **Goal:** Create the API layer and secure it.
 
-**Tasks:**
+### Backend – **Kirt**
 
-- [ ] Initialize Django project & core apps/modules.
-- [ ] Install & configure **Django REST Framework (DRF)**.
-- [ ] Implement JWT authentication (djangorestframework-simplejwt).
-- [ ] Setup role-based permissions (middleware).
-- [ ] Create serializers & views for **Users, Programs, Subjects, Curriculum**.
-- [ ] Add AuditLog middleware (auto-record CRUD).
-- [ ] Test endpoints in Postman (CRUD + auth).
+* [ ] Initialize Django project & core apps.
+* [ ] Install & configure **Django REST Framework (DRF)**.
+* [ ] Implement JWT authentication.
+* [ ] Setup role-based permissions (middleware).
+* [ ] Add AuditLog middleware (auto-record CRUD).
+
+### API Testing – **Yasmien**
+
+* [ ] Test endpoints in Postman (CRUD + auth).
 
 **Status:** 🚧 Not Started
 
@@ -42,23 +47,23 @@
 
 **Goal:** Setup UI skeleton and connect to API.
 
-**Tasks:**
+### Frontend – **Joshua & Marjorie**
 
-- [ ] Initialize React project (Vite).
-- [ ] Install dependencies:
+* [ ] Initialize React project (Vite).
+* [ ] Setup Tailwind + shadcn/ui components.
+* [ ] Build login page + role-based dashboard routing.
+* [ ] Create protected routes.
 
-  - `react-router-dom` (routing)
-  - `axios` (API calls)
-  - `zustand` (state management)
-  - `tailwindcss` (styling)
-  - `react-hot-toast` (notifications)
-  - `recharts` (analytics charts)
-  - _(add more as needed, document where they’re used)_
+### API Integration – **Edjohn**
 
-- [ ] Setup Tailwind + shadcn/ui components.
-- [ ] Implement global auth state (JWT store in Zustand).
-- [ ] Build login page + role-based dashboard routing.
-- [ ] Create protected routes (student, professor, admin, etc.).
+* [ ] Install dependencies (`axios`, `zustand`, etc.).
+* [ ] Implement global auth state (JWT store in Zustand).
+* [ ] Connect login/register with backend API.
+
+### Optimization – **Aira**
+
+* [ ] Organize folder structure.
+* [ ] Setup reusable components (buttons, inputs, cards).
 
 **Status:** 🚧 Not Started
 
@@ -68,28 +73,33 @@
 
 **Goal:** Implement base features for enrollment and academic records.
 
-**Tasks:**
+### Student Module – **Joshua**
 
-- [ ] **Student Module**
+* [ ] Profile & program view.
+* [ ] Enroll (prereq validation).
+* [ ] View enrolled subjects & syllabus.
 
-  - View profile, program, year level.
-  - Enroll (prereq validation).
-  - View enrolled subjects & syllabus.
+### Admission Module – **Mary Ann**
 
-- [ ] **Admission Module**
+* [ ] Applicant registration (forms + requirements upload).
+* [ ] Accept / reject applications.
+* [ ] Application status tracking.
 
-  - Applicant registration (forms + requirements upload).
-  - Accept / reject applications.
-  - Application status tracking.
+### Head Module – **Marjorie**
 
-- [ ] **Head Module**
+* [ ] CRUD subjects.
+* [ ] CRUD professors + assign to sections.
+* [ ] Update syllabus.
 
-  - CRUD subjects.
-  - CRUD professors + assign to sections.
-  - Update syllabus.
+### Backend APIs – **Kirt**
+
+* [ ] Support endpoints for Student, Admission, Head modules.
+
+### Testing – **Yasmien**
+
+* [ ] Verify enrollment flow works.
 
 **Deliverable:** Enrollment demo + sample student data.
-
 **Status:** 🚧 Not Started
 
 ---
@@ -98,27 +108,32 @@
 
 **Goal:** Build grading + registrar functionality.
 
-**Tasks:**
+### Professor Module – **Edjohn**
 
-- [ ] **Professor Module**
+* [ ] View section list.
+* [ ] Encode / update student final grades.
+* [ ] View analytics (per class).
 
-  - View section list.
-  - Encode / update student final grades.
-  - View analytics (grade distribution per class).
+### Registrar Module – **Aira**
 
-- [ ] **Registrar Module**
+* [ ] Manage student records (CRUD).
+* [ ] Upload PDFs linked to student.
+* [ ] Generate enrollment verification reports.
 
-  - Manage student records (CRUD).
-  - Process documents (upload PDFs linked to student).
-  - Generate reports (enrollment verification, transcript drafts).
+### Grades System – **Mary Ann**
 
-- [ ] **Grades System**
+* [ ] Handle INC workflow.
+* [ ] Implement signatory flow (professor → head → registrar).
 
-  - Handle INC workflow.
-  - Signatory flow (encoded_by professor, signed_by head/registrar).
+### Backend APIs – **Kirt**
 
-**Deliverable:** Grade entry + registrar document demo.
+* [ ] Endpoints for grade encoding & registrar workflows.
 
+### Testing – **Yasmien**
+
+* [ ] Test grade entry and registrar processes.
+
+**Deliverable:** Grade entry + registrar demo.
 **Status:** 🚧 Not Started
 
 ---
@@ -127,37 +142,47 @@
 
 **Goal:** Provide insights & dashboards.
 
-**Tasks:**
+### Backend – **Kirt**
 
-- [ ] Create analytics endpoints in Django (aggregate queries).
-- [ ] Role-based access:
+* [ ] Create analytics endpoints with aggregates.
 
-  - Admin → full system analytics.
-  - Head → department analytics.
-  - Registrar → enrollment + grade summaries.
-  - Professor → own class grade distribution.
+### Analytics Dashboards – **Mary Ann**
 
-- [ ] Build dashboards in React with Recharts.
-- [ ] Export features (CSV, PDF).
+* [ ] Admin → full system analytics.
+* [ ] Head → department analytics.
+* [ ] Registrar → enrollment + grades.
+* [ ] Professor → class distribution.
+
+### Frontend Visualization – **Joshua**
+
+* [ ] Build dashboards in React with Recharts.
+* [ ] Export features (CSV, PDF).
+
+### Testing – **Yasmien**
+
+* [ ] Validate correctness of analytics data.
 
 **Deliverable:** Analytics dashboard MVP.
-
 **Status:** 🚧 Not Started
 
 ---
 
-## **Phase 7: UI/UX Optimization (Frontend Efficiency)**
+## **Phase 7: UI/UX Optimization**
 
-**Goal:** Polish usability and performance before QA.
+**Goal:** Polish usability and performance.
 
-**Tasks:**
+### Optimization – **Aira**
 
-- [ ] Optimize API calls & caching with **TanStack Query** (stale-while-revalidate(loading), background updates).
-- [ ] Memoize only UI-heavy components (tables, charts) with `React.memo` if needed.
-- [ ] Improve responsiveness (mobile-first adjustments with Tailwind).
-- [ ] Add accessibility support (labels, ARIA roles, keyboard navigation).
-- [ ] Polish dashboards & forms (animations with Framer Motion, shadcn/ui refinements).
-- [ ] Enhance error handling + toasts for better UX.
+* [ ] Optimize API calls & caching with TanStack Query.
+* [ ] Memoize heavy components (tables, charts).
+* [ ] Improve responsiveness (mobile-first).
+* [ ] Add accessibility support.
+* [ ] Polish dashboards & forms (Framer Motion, shadcn/ui).
+* [ ] Error handling + toasts.
+
+### Project Management – **Jun**
+
+* [ ] Review all UI/UX improvements before merge.
 
 **Status:** 🚧 Not Started
 
@@ -165,16 +190,20 @@
 
 ## **Phase 8: Testing & QA**
 
-**Goal:** Ensure system stability and correctness.
+**Goal:** Ensure stability & correctness.
 
-**Tasks:**
+### QA – **Yasmien**
 
-- [ ] Unit tests (Django + Pytest).
-- [ ] API tests (Postman collections).
-- [ ] React component & integration tests (Jest + React Testing Library).
-- [ ] End-to-end tests (Cypress).
-- [ ] Security tests (RBAC enforcement, SQL injection prevention).
-- [ ] Load testing (simulate multiple students enrolling).
+* [ ] Unit tests (Django + Pytest).
+* [ ] API tests (Postman).
+* [ ] React component & integration tests.
+* [ ] End-to-end tests (Cypress).
+* [ ] Security tests (RBAC, SQL injection).
+* [ ] Load testing.
+
+### Support – **Jun**
+
+* [ ] Oversee bug fixing workflow.
 
 **Status:** 🚧 Not Started
 
@@ -184,16 +213,22 @@
 
 **Goal:** Host the system for local WiFi access.
 
-**Tasks:**
+### Backend Deployment – **Kirt**
 
-- [ ] Setup Django to run on LAN (`0.0.0.0:8000`).
-- [ ] Serve React frontend build via Django or Nginx.
-- [ ] Ensure all team members can access system over WiFi.
-- [ ] Setup daily DB backups (cron or pg_dump).
-- [ ] Prepare presentation + demo dataset.
+* [ ] Setup Django to run on LAN (`0.0.0.0:8000`).
+* [ ] Configure Nginx/Django serving.
+* [ ] Setup daily DB backups.
 
-**Deliverable:** MVP hosted on LAN + ready for final defense.
+### Frontend Build – **Marjorie**
 
+* [ ] Serve React build on LAN.
+
+### Presentation Prep – **Jun**
+
+* [ ] Demo dataset preparation.
+* [ ] Final presentation deck.
+
+**Deliverable:** MVP hosted on LAN + ready for defense.
 **Status:** 🚧 Not Started
 
 ---
