@@ -8,9 +8,8 @@
 
 This document contains the team roster, responsibilities, Git workflow, and simple onboarding notes for the RCI Academic Portal project. Keep this file as the single source of truth for team assignments and basic rules.
 
----
 
-## Team Roster
+## Team Roster (Updated)
 
 | Name     | Email                                                                   | GitHub                | Role / Primary Responsibility                                                                          | Notes                                          |
 | -------- | ----------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
@@ -20,8 +19,10 @@ This document contains the team roster, responsibilities, Git workflow, and simp
 | Mary Ann | [maryannlachicalumjod@gmail.com](mailto:maryannlachicalumjod@gmail.com) | No GitHub account yet | Frontend preferred (HTML/CSS, Kotlin experience), can help backend if needed — Registrar UI, Documents | Can help gym membership mini-feature if needed |
 | Kirt     | [kmaghinang57@gmail.com](mailto:kmaghinang57@gmail.com)                 | No GitHub account yet | Backend Lead — Django + DRF, models, auth (JWT), file uploads, core APIs                               | Set up Django apps & DB seed data              |
 | Edjohn   | Edjohngamaay28@gmailcom                                                 | No GitHub account yet | Frontend — Professor UI (grade encoding, section view)                                                 | Coordinate with Kirt for API contracts         |
-| Marjorie | (TBD)                                                                   | No GitHub account yet | Frontend — Admission UI (applicant forms, reviewer)                                                    | Add email when available                       |
+| Marjorie | (TBD)                                                                   | No GitHub account yet | **UI/UX Lead** — wireframes, responsive layouts, component design, improve frontend usability          | Supports all frontend members                  |
 | Jun      | [junalvior21@gmail.com](mailto:junalvior21@gmail.com)                   | Repository owner      | Project Manager — PR reviews, documentation owner, progress checks                                     | Approves PRs into `main`                       |
+
+---
 
 > **Note:** GitHub invites have been sent to Joshua and the repository is owned by Jun. Everyone without a GitHub account should create one and share their username so they can be invited.
 
@@ -43,3 +44,6 @@ This document contains the team roster, responsibilities, Git workflow, and simp
 
 ```bash
 git checkout -b feature/<your-name>
+
+
+

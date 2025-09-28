@@ -8,9 +8,9 @@
 
 ### Project Management – **Jun**
 
-* [X] Finalize system requirements & user roles.
-* [X] Setup GitHub repository & workflow.
-* [X] Create ERD with full relationships. nasa schema.md
+* [x] Finalize system requirements & user roles.
+* [x] Setup GitHub repository & workflow.
+* [x] Create ERD with full relationships (see schema.md).
 
 ### Backend – **Kirt**
 
@@ -47,7 +47,7 @@
 
 **Goal:** Setup UI skeleton and connect to API.
 
-### Frontend – **Joshua & Marjorie**
+### Frontend – **Joshua**
 
 * [ ] Initialize React project (Vite).
 * [ ] Setup Tailwind + shadcn/ui components.
@@ -60,10 +60,18 @@
 * [ ] Implement global auth state (JWT store in Zustand).
 * [ ] Connect login/register with backend API.
 
+### Component Design & Reusables – **Marjorie**
+
+* [ ] Build reusable UI components: buttons, cards, inputs, modals.
+* [ ] Ensure design consistency across all modules.
+* [ ] Setup responsive breakpoints for mobile/tablet/desktop.
+* [ ] Implement wireframes for dashboard and module layouts.
+* [ ] Document component usage for other frontend members.
+
 ### Optimization – **Aira**
 
 * [ ] Organize folder structure.
-* [ ] Setup reusable components (buttons, inputs, cards).
+* [ ] Support component integration & small reusable tweaks.
 
 **Status:** 🚧 Not Started
 
@@ -79,17 +87,12 @@
 * [ ] Enroll (prereq validation).
 * [ ] View enrolled subjects & syllabus.
 
-### Admission Module – **Mary Ann**
+### Admission & Head Modules – **Mary Ann**
 
 * [ ] Applicant registration (forms + requirements upload).
 * [ ] Accept / reject applications.
 * [ ] Application status tracking.
-
-### Head Module – **Marjorie**
-
-* [ ] CRUD subjects.
-* [ ] CRUD professors + assign to sections.
-* [ ] Update syllabus.
+* [ ] CRUD subjects & assign professors (previously Marjorie’s tasks).
 
 ### Backend APIs – **Kirt**
 
@@ -97,9 +100,10 @@
 
 ### Testing – **Yasmien**
 
-* [ ] Verify enrollment flow works.
+* [ ] Verify enrollment and admin flows.
 
-**Deliverable:** Enrollment demo + sample student data.
+**Deliverable:** Enrollment & admission demo + sample data.
+
 **Status:** 🚧 Not Started
 
 ---
@@ -134,6 +138,7 @@
 * [ ] Test grade entry and registrar processes.
 
 **Deliverable:** Grade entry + registrar demo.
+
 **Status:** 🚧 Not Started
 
 ---
@@ -163,6 +168,7 @@
 * [ ] Validate correctness of analytics data.
 
 **Deliverable:** Analytics dashboard MVP.
+
 **Status:** 🚧 Not Started
 
 ---
@@ -171,14 +177,18 @@
 
 **Goal:** Polish usability and performance.
 
+### UI/UX Lead – **Marjorie**
+
+* [ ] Review and improve all frontend layouts & forms.
+* [ ] Ensure mobile-first responsiveness & accessibility (ARIA, keyboard nav).
+* [ ] Add Framer Motion animations to dashboards & components.
+* [ ] Polish overall user experience: colors, spacing, consistency.
+* [ ] Collaborate with Aira for TanStack Query optimization & component reuse.
+
 ### Optimization – **Aira**
 
-* [ ] Optimize API calls & caching with TanStack Query.
-* [ ] Memoize heavy components (tables, charts).
-* [ ] Improve responsiveness (mobile-first).
-* [ ] Add accessibility support.
-* [ ] Polish dashboards & forms (Framer Motion, shadcn/ui).
-* [ ] Error handling + toasts.
+* [ ] Optimize API calls & caching.
+* [ ] Memoize heavy components.
 
 ### Project Management – **Jun**
 
@@ -229,6 +239,7 @@
 * [ ] Final presentation deck.
 
 **Deliverable:** MVP hosted on LAN + ready for defense.
+
 **Status:** 🚧 Not Started
 
 ---
