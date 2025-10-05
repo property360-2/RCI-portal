@@ -35,7 +35,8 @@ class User(AbstractUser):
         db_table = 'users'
     
     def __str__(self):
-        return f"{self.username} ({self.get_role_display})"
+        return f"{self.username} ({self.get_role_display()})"
+
 
 
 #==========================================
@@ -110,6 +111,7 @@ class Subject(models.Model):
 
 class Section(models.Model):
     section_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    section_name = models.CharField(max_length=50)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='sections')
     term = models.CharField(max_length=20)
     schedule = models.CharField(max_length=100)
@@ -159,7 +161,7 @@ class Enrollment(models.Model):
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('enrolled', 'Enrolled'),
-        ('droppped', 'Dropped'),
+        ('dropped', 'Dropped'),
     ]
     enrollment_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='enrollments')
@@ -204,7 +206,7 @@ class Grade(models.Model):
         ordering = ['-section__term']
     
     def __str__(self):
-        return f"{self.enrollment.student.student_number} - {self.subject.code}: {self.grade or 'INC'}"
+        return f"{self.student.student_number} - {self.subject.code}: {self.grade or 'INC'}"
     
 #==========================================
 # 9. APPLICATIONS TABLE
