@@ -14,10 +14,10 @@
 
 ### Backend – **Kirt**
 
-* [ ] Initialize PostgreSQL database.
-* [ ] Implement schema in Django models (`models.py`).
-* [ ] Run migrations (`makemigrations`, `migrate`).
-* [ ] Seed sample data (programs, test users, dummy enrollments).
+* [x] Initialize sqlite database. (soon postgresql)
+* [x] Implement schema in Django models (`models.py`).
+* [x] Run migrations (`makemigrations`, `migrate`).
+* [x] Seed sample data (programs, test users, dummy enrollments).
 
 **Status:** 🚧 Not Started
 
@@ -29,11 +29,11 @@
 
 ### Backend – **Kirt**
 
-* [ ] Initialize Django project & core apps.
-* [ ] Install & configure **Django REST Framework (DRF)**.
-* [ ] Implement JWT authentication.
-* [ ] Setup role-based permissions (middleware).
-* [ ] Add AuditLog middleware (auto-record CRUD).
+* [x] Initialize Django project & core apps.
+* [x] Install & configure **Django REST Framework (DRF)**.
+* [x] Implement JWT authentication.
+* [x] Setup role-based permissions (middleware).
+* [x] Add AuditLog middleware (auto-record CRUD).
 
 ### API Testing – **Yasmien**
 
