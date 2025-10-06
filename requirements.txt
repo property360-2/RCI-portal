@@ -1,0 +1,31 @@
+# Django Core
+Django==5.0.1
+
+# Django REST Framework for API development
+djangorestframework==3.14.0
+
+# Environment variables management
+python-decouple==3.8
+
+# Image processing (for FileField/ImageField)
+Pillow==10.2.0
+
+# Database drivers (optional, choose based on your needs)
+# PostgreSQL driver (uncomment when migrating to PostgreSQL)
+# psycopg2-binary==2.9.9
+
+# MySQL driver (uncomment if using MySQL)
+# mysqlclient==2.2.1
+
+# Development tools (optional but recommended)
+# Django Debug Toolbar for debugging
+# django-debug-toolbar==4.2.0
+
+# CORS headers (needed when React frontend connects)
+django-cors-headers==4.3.1
+
+# JWT Authentication (for React integration)
+djangorestframework-simplejwt==5.3.1
+
+# Python dotenv for .env file support
+python-dotenv==1.0.0
