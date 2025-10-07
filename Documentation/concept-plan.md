@@ -141,7 +141,7 @@ RCI Academic Portal is a centralized Student Information & Academic Management S
 
 ## 9) Tech Stack (Finalized)
 
-* **Frontend:** React vite tsx.
+* **Frontend:** React vite jsx.
 * **UI:** Tailwind CSS (clean styling), ShadCN components.
 * **Backend:** Django (Python) with Django REST Framework (DRF) for APIs.
 * **Database:** PostgreSQL (recommended) or MySQL(depends parin sa school), sqlite muna for better good.
