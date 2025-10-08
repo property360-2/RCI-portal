@@ -60,7 +60,7 @@
 * [ ] Implement global auth state (JWT store in Zustand).
 * [ ] Connect login/register with backend API.
 
-### Component Design & Reusables – **Marjorie**
+### Component Design & Reusables – **Joshua and Edjohn , Collaborate na lang kayo mag pare**
 
 * [ ] Build reusable UI components: buttons, cards, inputs, modals.
 * [ ] Ensure design consistency across all modules.
@@ -72,6 +72,15 @@
 
 * [ ] Organize folder structure.
 * [ ] Support component integration & small reusable tweaks.
+
+
+### Testing & Documentation Alignment -  **Marjorie**
+
+* [ ] Test all frontend pages and components for functionality and responsiveness.
+* [ ] Verify API integration aligns with backend responses and expected behavior.
+* [ ] Ensure UI/UX follows the documented wireframes and system objectives.
+* [ ] Report bugs or inconsistencies to the frontend team.
+* [ ] Assist in updating technical documentation after testing.
 
 **Status:** 🚧 Not Started
 
