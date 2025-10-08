@@ -77,10 +77,8 @@
 ### Testing & Documentation Alignment -  **Marjorie**
 
 * [ ] Test all frontend pages and components for functionality and responsiveness.
-* [ ] Verify API integration aligns with backend responses and expected behavior.
-* [ ] Ensure UI/UX follows the documented wireframes and system objectives.
 * [ ] Report bugs or inconsistencies to the frontend team.
-* [ ] Assist in updating technical documentation after testing.
+* [ ] ensure that the website aligns with the documentation
 
 **Status:** 🚧 Not Started
 
