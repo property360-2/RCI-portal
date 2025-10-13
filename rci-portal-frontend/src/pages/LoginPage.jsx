@@ -1,61 +1,77 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { LogIn, GraduationCap, Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react'
-import useAuthStore from '../store/useAuthStore'
-import authService from '../services/authService'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  LogIn,
+  GraduationCap,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  AlertCircle,
+} from "lucide-react";
+import useAuthStore from "../store/useAuthStore";
+import authService from "../services/authService";
 
 const LoginPage = () => {
-  const navigate = useNavigate()
-  const setAuth = useAuthStore((state) => state.setAuth)
-  
+  const navigate = useNavigate();
+  const setAuth = useAuthStore((state) => state.setAuth);
+
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  })
-  const [errors, setErrors] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
+    username: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }))
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setErrors({})
+    e.preventDefault();
+    setIsLoading(true);
+    setErrors({});
 
     try {
       const response = await authService.login(
         formData.username,
         formData.password
-      )
+      );
 
-      setAuth(response.user, response.token, response.refresh)
+      // Backend returns: { access, refresh, user }
+      // Fix: use 'access' instead of 'token'
+      setAuth(response.user, response.access, response.refresh);
 
       const roleRoutes = {
-        student: '/student/dashboard',
-        registrar: '/registrar/dashboard',
-        admission: '/admission/dashboard',
-        head: '/head/dashboard',
-        professor: '/professor/dashboard',
-        admin: '/admin/dashboard',
-      }
+        student: "/student/dashboard",
+        registrar: "/registrar/dashboard",
+        admissions: "/admission/dashboard",
+        head: "/head/dashboard",
+        professor: "/professor/dashboard",
+        admin: "/admin/dashboard",
+      };
 
-      navigate(roleRoutes[response.user.role] || '/dashboard')
+      navigate(roleRoutes[response.user.role] || "/dashboard");
     } catch (error) {
-      console.error('Login error:', error)
-      setErrors({
-        general: error.response?.data?.detail || 'Invalid credentials. Please try again.',
-      })
+      console.error("Login error:", error);
+
+      // Better error handling
+      const errorMessage =
+        error.response?.data?.detail ||
+        error.response?.data?.message ||
+        error.message ||
+        "Invalid credentials. Please try again.";
+
+      setErrors({ general: errorMessage });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -74,20 +90,26 @@ const LoginPage = () => {
               <GraduationCap className="w-7 h-7 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">Richwell Colleges, Incorporated</h1>
-              <p className="text-blue-200 text-sm">Academic Management System</p>
+              <h1 className="text-2xl font-bold text-white">
+                Richwell Colleges, Incorporated
+              </h1>
+              <p className="text-blue-200 text-sm">
+                Academic Management System
+              </p>
             </div>
           </div>
         </div>
 
         <div className="relative z-10">
           <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-            Welcome to Your<br />Academic Journey
+            Welcome to Your
+            <br />
+            Academic Journey
           </h2>
           <p className="text-blue-100 text-lg mb-8">
             Access your courses, grades, and academic records all in one place.
           </p>
-          
+
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-white/90">
               <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -111,7 +133,8 @@ const LoginPage = () => {
         </div>
 
         <div className="relative z-10 text-blue-200 text-sm">
-          © 2025 Richwell Colleges, Incorporated. Academic Portal. All rights reserved.
+          © 2025 Richwell Colleges, Incorporated. Academic Portal. All rights
+          reserved.
         </div>
       </div>
 
@@ -134,9 +157,7 @@ const LoginPage = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 Welcome Back
               </h2>
-              <p className="text-gray-600">
-                Sign in to access your account
-              </p>
+              <p className="text-gray-600">Sign in to access your account</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -144,7 +165,9 @@ const LoginPage = () => {
                 <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3 animate-shake">
                   <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-red-800">Login Failed</p>
+                    <p className="text-sm font-medium text-red-800">
+                      Login Failed
+                    </p>
                     <p className="text-sm text-red-600">{errors.general}</p>
                   </div>
                 </div>
@@ -209,9 +232,14 @@ const LoginPage = () => {
                     type="checkbox"
                     className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
-                  <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                  <span className="ml-2 text-sm text-gray-600">
+                    Remember me
+                  </span>
                 </label>
-                <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                <a
+                  href="#"
+                  className="text-sm font-medium text-blue-600 hover:text-blue-700"
+                >
                   Forgot password?
                 </a>
               </div>
@@ -224,8 +252,20 @@ const LoginPage = () => {
                 {isLoading ? (
                   <span className="flex items-center justify-center gap-2">
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
                     </svg>
                     Signing in...
                   </span>
@@ -240,8 +280,11 @@ const LoginPage = () => {
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                Don't have an account?{' '}
-                <a href="#" className="font-medium text-blue-600 hover:text-blue-700">
+                Don't have an account?{" "}
+                <a
+                  href="#"
+                  className="font-medium text-blue-600 hover:text-blue-700"
+                >
                   Contact Admin
                 </a>
               </p>
@@ -254,7 +297,7 @@ const LoginPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
