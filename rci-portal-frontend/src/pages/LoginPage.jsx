@@ -47,6 +47,7 @@ const LoginPage = () => {
       // Fix: use 'access' instead of 'token'
       setAuth(response.user, response.access, response.refresh);
 
+      // Role-based routing
       const roleRoutes = {
         student: "/student/dashboard",
         registrar: "/registrar/dashboard",

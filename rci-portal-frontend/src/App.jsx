@@ -134,10 +134,27 @@ function App() {
           }
         />
         <Route
+          path="/student/profile"
+          element={
+            <ProtectedRoute allowedRoles={['student']}>
+              <StudentProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/student/subjects"
           element={
             <ProtectedRoute allowedRoles={["student"]}>
               <StudentSubjects />
+            </ProtectedRoute>
+          }
+        />
+        {/* New Student Enrollment Route */}
+        <Route
+          path="/student/enrollment"
+          element={
+            <ProtectedRoute allowedRoles={['student']}>
+              <StudentEnrollment />
             </ProtectedRoute>
           }
         />
@@ -225,4 +242,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

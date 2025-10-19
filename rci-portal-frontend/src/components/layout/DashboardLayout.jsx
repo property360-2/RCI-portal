@@ -33,6 +33,8 @@ const DashboardLayout = ({ children }) => {
     const roleNavItems = {
       student: [
         { name: 'Dashboard', icon: Home, path: '/student/dashboard' },
+        { name: 'My Profile', icon: User, path: '/student/profile' },
+        { name: 'Enrollment', icon: BookOpen, path: '/student/enrollment' },
         { name: 'My Subjects', icon: BookOpen, path: '/student/subjects' },
         { name: 'Grades', icon: GraduationCap, path: '/student/grades' },
         { name: 'Documents', icon: FileText, path: '/student/documents' },
