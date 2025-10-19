@@ -4,8 +4,10 @@ import ProtectedRoute from './components/ProtectedRoute'
 import LoginPage from './pages/LoginPage'
 import StudentDashboard from './pages/StudentDashboard'
 import StudentSubjects from './pages/StudentSubjects'
+import StudentProfile from './pages/StudentProfile'
 import RegistrarDashboard from './pages/RegistrarDashboard'
 import DashboardLayout from './components/layout/DashboardLayout'
+import StudentEnrollment from './pages/StudentEnrollment'
 
 // Placeholder components for other roles
 const AdmissionDashboard = () => (
@@ -106,10 +108,27 @@ function App() {
           }
         />
         <Route
+          path="/student/profile"
+          element={
+            <ProtectedRoute allowedRoles={['student']}>
+              <StudentProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/student/subjects"
           element={
             <ProtectedRoute allowedRoles={['student']}>
               <StudentSubjects />
+            </ProtectedRoute>
+          }
+        />
+        {/* New Student Enrollment Route */}
+        <Route
+          path="/student/enrollment"
+          element={
+            <ProtectedRoute allowedRoles={['student']}>
+              <StudentEnrollment />
             </ProtectedRoute>
           }
         />

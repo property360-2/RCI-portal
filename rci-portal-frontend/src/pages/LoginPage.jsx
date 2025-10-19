@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { LogIn, GraduationCap, Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react'
 import useAuthStore from '../store/useAuthStore'
 import authService from '../services/authService'
@@ -26,8 +26,19 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsLoading(true)
+    
+    // Clear previous errors
     setErrors({})
+    
+    // Basic validation
+    if (!formData.username || !formData.password) {
+      setErrors({
+        general: 'Please enter both username and password.'
+      })
+      return
+    }
+
+    setIsLoading(true)
 
     try {
       const response = await authService.login(
@@ -35,8 +46,10 @@ const LoginPage = () => {
         formData.password
       )
 
+      // Store auth data
       setAuth(response.user, response.token, response.refresh)
 
+      // Role-based routing
       const roleRoutes = {
         student: '/student/dashboard',
         registrar: '/registrar/dashboard',
@@ -46,12 +59,44 @@ const LoginPage = () => {
         admin: '/admin/dashboard',
       }
 
+      // Navigate to appropriate dashboard
       navigate(roleRoutes[response.user.role] || '/dashboard')
     } catch (error) {
       console.error('Login error:', error)
-      setErrors({
-        general: error.response?.data?.detail || 'Invalid credentials. Please try again.',
-      })
+      
+      // Handle different error types
+      if (error.code === 'ERR_NETWORK') {
+        setErrors({
+          general: 'Cannot connect to server. Please check your connection and try again.'
+        })
+      } else if (error.response) {
+        // Server responded with error
+        const status = error.response.status
+        const detail = error.response.data?.detail || error.response.data?.message
+        
+        if (status === 401) {
+          setErrors({
+            general: 'Invalid username or password. Please try again.'
+          })
+        } else if (status === 400) {
+          setErrors({
+            general: detail || 'Please check your credentials and try again.'
+          })
+        } else if (status === 500) {
+          setErrors({
+            general: 'Server error. Please try again later.'
+          })
+        } else {
+          setErrors({
+            general: detail || 'Login failed. Please try again.'
+          })
+        }
+      } else {
+        // Unknown error
+        setErrors({
+          general: 'An unexpected error occurred. Please try again.'
+        })
+      }
     } finally {
       setIsLoading(false)
     }
@@ -74,7 +119,7 @@ const LoginPage = () => {
               <GraduationCap className="w-7 h-7 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">Richwell Colleges, Incorporated</h1>
+              <h1 className="text-2xl font-bold text-white">RCI Portal</h1>
               <p className="text-blue-200 text-sm">Academic Management System</p>
             </div>
           </div>
@@ -111,7 +156,7 @@ const LoginPage = () => {
         </div>
 
         <div className="relative z-10 text-blue-200 text-sm">
-          © 2025 Richwell Colleges, Incorporated. Academic Portal. All rights reserved.
+          © 2025 RCI Academic Portal. All rights reserved.
         </div>
       </div>
 
@@ -241,9 +286,9 @@ const LoginPage = () => {
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{' '}
-                <a href="#" className="font-medium text-blue-600 hover:text-blue-700">
-                  Contact Admin
-                </a>
+                <Link to="/register" className="font-medium text-blue-600 hover:text-blue-700">
+                  Create Account
+                </Link>
               </p>
             </div>
           </div>
