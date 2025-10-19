@@ -37,7 +37,7 @@
 
 ### API Testing – **Yasmien**
 
-* [ ] Test endpoints in Postman (CRUD + auth).
+* [x] Test endpoints in Postman (CRUD + auth).
 
 **Status:** 🚧 Not Started
 
@@ -49,29 +49,29 @@
 
 ### Frontend – **Joshua**
 
-* [ ] Initialize React project (Vite).
-* [ ] Setup Tailwind + shadcn/ui components.
-* [ ] Build login page + role-based dashboard routing.
-* [ ] Create protected routes.
+* [x] Initialize React project (Vite).
+* [x] Setup Tailwind + shadcn/ui components.
+* [x] Build login page + role-based dashboard routing.
+* [x] Create protected routes.
 
 ### API Integration – **Edjohn**
 
-* [ ] Install dependencies (`axios`, `zustand`, etc.).
-* [ ] Implement global auth state (JWT store in Zustand).
-* [ ] Connect login/register with backend API.
+* [x] Install dependencies (`axios`, `zustand`, etc.).
+* [x] Implement global auth state (JWT store in Zustand).
+* [x] Connect login/register with backend API.
 
 ### Component Design & Reusables – **Joshua and Edjohn , Collaborate na lang kayo mag pare**
 
-* [ ] Build reusable UI components: buttons, cards, inputs, modals.
-* [ ] Ensure design consistency across all modules.
-* [ ] Setup responsive breakpoints for mobile/tablet/desktop.
-* [ ] Implement wireframes for dashboard and module layouts.
-* [ ] Document component usage for other frontend members.
+* [x] Build reusable UI components: buttons, cards, inputs, modals.
+* [x] Ensure design consistency across all modules.
+* [x] Setup responsive breakpoints for mobile/tablet/desktop.
+* [x] Implement wireframes for dashboard and module layouts.
+* [x] Document component usage for other frontend members.
 
 ### Optimization – **Aira**
 
-* [ ] Organize folder structure.
-* [ ] Support component integration & small reusable tweaks.
+* [x] Organize folder structure.
+* [x] Support component integration & small reusable tweaks.
 
 
 ### Testing & Documentation Alignment -  **Marjorie**

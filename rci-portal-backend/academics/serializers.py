@@ -176,16 +176,33 @@ class StudentCreateSerializer(serializers.ModelSerializer):
 # ========================================
 # ENROLLMENT SERIALIZERS
 # ========================================
-
 class EnrollmentSerializer(serializers.ModelSerializer):
     student_name = serializers.CharField(source='student.user.get_full_name', read_only=True)
     student_number = serializers.CharField(source='student.student_number', read_only=True)
-    section_info = SectionSerializer(source='section', read_only=True)
+    section_info = serializers.SerializerMethodField()  # ✅ Add this
     
     class Meta:
         model = Enrollment
         fields = '__all__'
         read_only_fields = ['enrollment_id', 'timestamp']
+    
+    def get_section_info(self, obj):  # ✅ Add this method
+        if not obj.section:
+            return None
+        return {
+            'section_id': str(obj.section.section_id),
+            'section_name': obj.section.section_name,
+            'subject_code': obj.section.subject.code,
+            'subject_title': obj.section.subject.title,
+            'schedule': obj.section.schedule,
+            'room': obj.section.room,
+            'professor_name': obj.section.professor.get_full_name() if obj.section.professor else 'TBA',
+            'subject': {
+                'units': obj.section.subject.units,
+                'syllabus_pdf': obj.section.subject.syllabus_pdf.url if obj.section.subject.syllabus_pdf else None,
+                'summary': obj.section.subject.summary,
+            }
+        }
 
 
 class EnrollmentCreateSerializer(serializers.ModelSerializer):
