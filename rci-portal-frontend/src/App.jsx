@@ -8,6 +8,8 @@ import RegistrarDashboard from "./pages/RegistrarDashboard";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import RegisterPage from "./pages/RegisterPage";
 // Placeholder components for other roles
+import  StudentProfile  from "./pages/StudentProfile";
+import  StudentEnrollment   from "./pages/StudentEnrollment";
 
 const AdmissionDashboard = () => (
   <DashboardLayout>
